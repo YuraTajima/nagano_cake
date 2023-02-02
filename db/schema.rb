@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2023_01_31_124056) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "costomers", force: :cascade do |t|
+  create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(version: 2023_01_31_124056) do
     t.boolean "is_deleted", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_costomers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_costomers_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
