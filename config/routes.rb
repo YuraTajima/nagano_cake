@@ -8,15 +8,35 @@ Rails.application.routes.draw do
     root to: "homes#top"
   end
   
-  namespace :public do
-    root to: "homes#top"
-    get 'homes/about'
-    resources :items, only: [:index, :show]
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :orders, only: [:new, :comfirm, :complete, :create, :index, :show]
-    
-    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
-  end
+  #homes
+  root to: "public/homes#top"
+  get "/about" => "public/homes#about"
+  
+  #items
+  get "/items" => "public/items#index"
+  get "/items/:id" => "public/items#show"
+  
+  #cart_items
+  get "/cart_items" => "public/cart_items#index"
+  patch  "/cart_items/:id" => "public/cart_items#update"
+  delete "/cart_items/:id" => "public/cart_items#destroy"
+  delete "/cart_items/destroy_all" => "public/cart_items#destroy_all"
+  post "/cart_items" => "public/cart_items#create"
+  
+  #orders
+  get "/orders/new" => "public/orders#new"
+  post "/orders/comfirm" => "public/orders#comfirm"
+  get "/orders/complete" => "public/orders#complete"
+  post "/orders" => "public/orders#create"
+  get "/orders" => "public/orders#index"
+  get "/orders/:id" => "public/orders#show"
+  
+  #addresses
+  get "/addresses" => "public/addresses#index"
+  get "/addresses/:id/edit" => "public/addresses#edit"
+  post "/addresses" => "public/addresses#create"
+  patch "/addresses/:id" => "public/addresses#update"
+  delete "/addresses/:id" => "public/addresses#destroy"
   
   #管理者
   devise_for :admins
