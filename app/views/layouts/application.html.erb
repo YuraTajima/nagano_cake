@@ -11,6 +11,59 @@
   </head>
 
   <body>
+    
+     <header>
+      <nav class="navber navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+        <span class="navbar-brand">
+          logo
+        </span>
+        
+          <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
+            <ul class="navbar-nav ml-auto">
+            <!--% if user_signed_in? %>-->
+            
+            <li class="nav-link text-light">
+              マイページ
+            </li>
+            
+            <li class="nav-link text-light">
+              商品一覧
+            </li>
+            
+            <li class="nav-link text-light">
+              カート
+            </li>
+            
+            <li class="nav-link text-light">
+              ログアウト
+            </li>
+            
+            <!--% else %>-->
+            
+            <!--<li class="nav-link text-light">-->
+            <!--  About-->
+            <!--</li>-->
+            
+            <!--<li class="nav-link text-light">-->
+            <!--  商品一覧-->
+            <!--</li>-->
+            
+            <!--<li class="nav-link text-light">-->
+            <!--  新規登録-->
+            <!--</li>-->
+            
+            <!--<li class="nav-link text-light">-->
+            <!--  ログイン-->
+            <!--</li>-->
+            
+            <!--% end %>-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
     <%= yield %>
   </body>
 </html>
