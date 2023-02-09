@@ -18,18 +18,18 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  protected
+  #protected
   
-  def customer_state
-    @customer = Customer.find_by(email: params[:customer][:email])
+  #def customer_state
+    #@customer = Customer.find_by(email: params[:customer][:email])
     
-    return if !@customer
+    #return if !@customer
     
-    if @customer.valid_password?(params[:customer][:password])
-      true && !false
-      → true
-    end
-  end
+    #if @customer.valid_password?(params[:customer][:password])
+      #true && !false
+      #→ true
+    #end
+  #end
   
 
   # If you have extra params to permit, append them to the sanitizer.

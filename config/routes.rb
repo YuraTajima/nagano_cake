@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
+    resources :customers, only: [:index, :show, :edit, :update]
     root to: "homes#top"
   end
   
@@ -48,6 +49,13 @@ Rails.application.routes.draw do
   post "/addresses" => "public/addresses#create"
   patch "/addresses/:id" => "public/addresses#update"
   delete "/addresses/:id" => "public/addresses#destroy"
+  
+  #customers
+  get "/customers/my_page" => "public/customers#show"
+  get "/customers/information/edit" => "public/customers#edit"
+  patch "/customers/information" => "public/customers#update"
+  get "/customers/unsubscribe" => "public/customers#unsubscribe"
+  patch "/customers/withdraw" => "public/customers#withdraw"
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

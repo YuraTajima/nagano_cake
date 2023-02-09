@@ -18,9 +18,12 @@
         <%= f.number_field :price %>円
         
         <h4>販売ステータス</h4>
-        <span><%= f.check_box :is_active %>販売中</span>
-        <span><%= f.check_box :is_active %>販売停止中</span>
-	
+        <%= f.radio_button :is_active, "sale" %>
+        <%= f.label :is_active, "販売中" %>
+
+        <%= f.radio_button :is_active, "stop" %>
+        <%= f.label :is_active, "販売停止中" %>
+        
         <h4><%= f.submit '新規登録' %></h4>
         <% end %>
     </div>
