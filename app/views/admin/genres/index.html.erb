@@ -1,2 +1,31 @@
-<h1>Admin::Genres#index</h1>
-<p>Find me in app/views/admin/genres/index.html.erb</p>
+<main>
+    <div>
+        <h2>ジャンル一覧・追加</h2>
+    </div>
+    
+    <div>
+        <h4>ジャンル名</h4>
+        <%= form_with model: @genre, url: '/admin/genres', method: :post do |f| %>
+        <%= f.text_field :name %>
+        <h4><%= f.submit '新規登録' %></h4>
+        <% end %>
+    </div>
+    
+    <div>
+        <table class="table table-hover table-inverse">
+        <thead>
+            <tr>
+                <th>ジャンル</th>
+                <th colspan="1"></th>
+            </tr>
+        </thead>
+        
+        <tobody>
+            <tr>
+                <th>ooo</th>
+                <th><!--%= link_to '編集する', genres_path %--></th>
+            </tr>
+        </tobody>
+        </table>
+    </div>
+</main>
