@@ -2,6 +2,7 @@
     <h2>商品新規登録</h2>
     <div>
         <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
+        
         <h4>商品画像</h4>
         <%= f.file_field :image, accept: "image/*" %>
         
@@ -12,8 +13,8 @@
         <%= f.text_area :introduction %>
         
         <h4>ジャンル</h4>
-        <!--%= f.select :genre_id %-->
-        
+        <%= f.select :genre_id, [['ケーキ',1], ['プリン',2], ['焼き菓子',3],['キャンディ',4]] %>
+
         <h4>税抜価格</h4>
         <%= f.number_field :price %>円
         
