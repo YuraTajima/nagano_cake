@@ -16,7 +16,7 @@
         <%= f.select :genre_id, [['ケーキ',1], ['プリン',2], ['焼き菓子',3],['キャンディ',4]] %>
 
         <h4>税抜価格</h4>
-        <%= f.number_field :price %>円
+        <%= f.text_field :price %>円
         
         <h4>販売ステータス</h4>
         <%= f.radio_button :is_active, "sale" %>

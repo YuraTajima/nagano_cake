@@ -15,13 +15,15 @@
         </thead>
         
         <tobody>
+            <% @items.each do |item| %>
             <tr>
-                <th>ooo</th>
-                <th>ooo</th>
-                <th>ooo</th>
-                <th>ooo</th>
-                <th>ooo</th>
+                <th><%= item.id %></th>
+                <th><%= item.name %></th>
+                <th><%= item.price %></th>
+                <th><%= item.genre_id %></th>
+                <th><%= item.is_active %></th>
             </tr>
+            <% end %>
         </tobody>
         </table>
     </div>
