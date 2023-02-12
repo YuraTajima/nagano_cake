@@ -3,7 +3,13 @@
         <h4>商品詳細</h4>
     </div>
     
-    <div></div>
+    <div>
+        <% if @item.image.attached? %>
+            <%= image_tag @item.image, size: "500x500" %>
+        <% else %>
+            <%= image_tag 'no_image', size: "500x500" %>
+        <% end %>
+    </div>
     
     <div>
         商品名<%= @item.name %>
@@ -12,4 +18,6 @@
         税込価格<%= @item.price %>
         販売ステータス<%= @item.is_active %>
     </div>
+    
+    <div><%= link_to '編集する', edit_admin_item_path(@item.id) %></div>
 </main>

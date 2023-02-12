@@ -2,6 +2,7 @@
     <h2>商品編集</h2>
     <div>
         <%= form_with model: @item, url: '/admin/items/:id/edit', method: :post do |f| %>
+
         <h4>商品画像</h4>
         <%= f.file_field :image, accept: "image/*" %>
         
@@ -12,10 +13,10 @@
         <%= f.text_area :introduction %>
         
         <h4>ジャンル</h4>
-        <!--%= f.select :genre_id %-->
-        
+        <%= f.select :genre_id, [['ケーキ',1], ['プリン',2], ['焼き菓子',3],['キャンディ',4]] %>
+
         <h4>税抜価格</h4>
-        <%= f.number_field :price %>円
+        <%= f.text_field :price %>円
         
         <h4>販売ステータス</h4>
         <%= f.radio_button :is_active, "sale" %>
@@ -23,7 +24,7 @@
 
         <%= f.radio_button :is_active, "stop" %>
         <%= f.label :is_active, "販売停止中" %>
-	
+        
         <h4><%= f.submit '変更を保存' %></h4>
         <% end %>
     </div>

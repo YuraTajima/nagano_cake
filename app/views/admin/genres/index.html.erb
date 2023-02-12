@@ -21,10 +21,12 @@
         </thead>
         
         <tobody>
+            <% @genres.each do |genre| %>
             <tr>
-                <th>ooo</th>
-                <th><!--%= link_to '編集する', genres_path %--></th>
+                <th><%= genre.name %></th>
+                <th><%= link_to '編集する', edit_admin_genre_path(genre.id) %></th>
             </tr>
+            <% end %>
         </tobody>
         </table>
     </div>
