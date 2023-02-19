@@ -1,15 +1,15 @@
 <main>
     <div>
         <h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3>
-        会員ID<%= @customer.id %>
-        氏名<%= @customer.last_name %><%= @customer.first_name %>
-        フリガナ<%= @customer.last_name_kana %><%= @customer.first_name_kana %>
-        郵便番号<%= @customer.postal_code %>
-        住所<%= @customer.adress %>
-        電話番号<%= @customer.telephone_number %>
-        メールアドレス<%= @customer.email %>
-        会員ステータス<%= @customer.is_deleted %>
-        <%= link_to '編集する', edit_admin_customer_path(@customer.id) %>
-        <%= link_to '注文履歴一覧を見る', admin_home_path %>
+        会員ID <%= @customer.id %><br>
+        氏名 <%= @customer.last_name %><%= @customer.first_name %><br>
+        フリガナ <%= @customer.last_name_kana %><%= @customer.first_name_kana %><br>
+        郵便番号 <%= @customer.postal_code %><br>
+        住所 <%= @customer.address %><br>
+        電話番号 <%= @customer.telephone_number %><br>
+        メールアドレス <%= @customer.email %><br>
+        会員ステータス <%= @customer.is_deleted %><br>
+        <%= link_to '編集する', edit_admin_customer_path(@customer.id) %><br>
+        <%= link_to '注文履歴一覧を見る', admin_root_path %>
     </div>
 </main>
