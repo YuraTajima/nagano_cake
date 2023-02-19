@@ -1,1 +1,30 @@
-<h1>商品詳細</h1>
+<main>
+    <div>
+        <% if @item.image.attached? %>
+            <%= image_tag @item.image, size: "500x500" %>
+        <% else %>
+            <%= image_tag 'no_image', size: "500x500" %>
+        <% end %>
+    </div>
+    
+    <div>
+        <ul>
+            <li>
+                <%= @item.name %>
+            </li>
+            <li>
+                <%= @item.introduction %>
+            </li>
+            <li>
+                <%= @item.price %>
+            </li>
+            
+            <li>
+                <%= form_with model: @item, url: '/items/:id', method: :post do |f| %>
+                    <%= f.select :amount, *[1..5] %>
+                    <%= f.submit 'カートに入れる' %>
+                <% end %>
+            </li>
+        </ul>
+    </div>
+</main>

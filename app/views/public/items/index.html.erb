@@ -1,11 +1,20 @@
 <main>
+    <h3>商品一覧</h3>
     <div>
-        <h3>商品一覧</h3>
-        
-        <div>
-            画像
-            商品名
-            ¥
-        </div>
+        <ul>
+            <li>
+                <% if @item.image.attached? %>
+                    <%= image_tag @item.image, size: "500x500" %>
+                <% else %>
+                    <%= image_tag 'no_image', size: "500x500" %>
+                <% end %>
+            </li>
+            <li>
+                <%= @item.name %>
+            </li>
+            <li>
+                <%= @item.price %>
+            </li>
+        </ul>
     </div>
 </main>

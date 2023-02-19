@@ -1,6 +1,9 @@
 <main>
     <div>
         <h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h3>
+        
+        <%= form_with model: @customer, url: '/admin/customers/:id/edit', method: :post do |f| %>
+        <div>
         <div class="field">
           <span>名前</span>
           <%= f.text_field :last_name %>
@@ -45,6 +48,8 @@
     
         <div class="field">
           <%= f.submit "新規登録" %>
+        </div>
+        <% end %>
         </div>
     </div>
 </main>
