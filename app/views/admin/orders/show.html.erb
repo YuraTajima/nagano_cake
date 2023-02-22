@@ -1,28 +1,35 @@
 <main>
     <div>
-        <h3>注文履歴一覧</h3>
+        <h3>注文履歴詳細</h3>
+    </div>
+    <div>
+        購入者 <%= @customer.last_name %><%= @customer.first_name %><br>
+        注文日 <br>
+        配送先 <br>
+        支払い方法 <br>
+        注文ステータス <br>
     </div>
     
     <div>
         <table class="table table-hover table-inverse">
         <thead>
             <tr>
-                <th>購入日時</th>
-                <th>購入者</th>
-                <th>注文個数</th>
-                <th>注文ステータス</th>
+                <th>商品名</th>
+                <th>単価（税込）</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th>制作ステータス</th>
             </tr>
         </thead>
         
         <tobody>
-            <!--% @customers.each do |customer| %>-->
-            <!--<tr>-->
-            <!--    <th>%= customer.id %></th>-->
-            <!--    <th>%= customer.last_name %>%= customer.first_name %></th>-->
-            <!--    <th>%= customer.email %></th>-->
-            <!--    <th>%= customer.is_deleted %></th>-->
-            <!--</tr>-->
-            <!--% end %>-->
+            <tr>
+                <th><%= @item.name %></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </tobody>
         </table>
     </div>
