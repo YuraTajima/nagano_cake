@@ -1,7 +1,7 @@
 <main>
     <h2>商品編集</h2>
     <div>
-        <%= form_with model: @item, url: edit_admin_item_path(@item.id), method: :patch do |f| %>
+        <%= form_with model: @item, url: admin_item_path do |f| %>
 
         <h4>商品画像</h4>
         <%= f.file_field :image, accept: "image/*" %>
