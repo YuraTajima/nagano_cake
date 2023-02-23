@@ -14,6 +14,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
+    
   end
   
   private
