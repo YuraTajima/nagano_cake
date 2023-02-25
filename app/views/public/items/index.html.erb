@@ -1,14 +1,25 @@
 <main>
     <h3>商品一覧</h3>
+    
     <div>
+        <% @items.each do |item| %>
         <ul>
-
+            <%= link_to show_items_path(item.id) do %>
             <li>
-                <%= @item.name %>
+                <% if item.image.attached? %>
+                    <%= image_tag item.image, size: "100x100" %>
+                <% else %>
+                    <%= image_tag 'no_image', size: "100x100" %>
+                <% end %>
             </li>
             <li>
-                <%= @item.price %>
+                <%= item.name %>
+            </li>
+            <% end %>
+            <li>
+                <%= item.price %>
             </li>
         </ul>
+        <% end %>
     </div>
 </main>

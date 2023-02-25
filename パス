@@ -1,4 +1,4 @@
-   new_customer_session GET    /customers/sign_in(.:format)                                                                      public/sessions#new
+new_customer_session GET    /customers/sign_in(.:format)                                                                      public/sessions#new
                         customer_session POST   /customers/sign_in(.:format)                                                                      public/sessions#create
                 destroy_customer_session DELETE /customers/sign_out(.:format)                                                                     public/sessions#destroy
             cancel_customer_registration GET    /customers/cancel(.:format)                                                                       public/registrations#cancel
@@ -37,7 +37,7 @@
                                     root GET    /                                                                                                 public/homes#top
                                    about GET    /about(.:format)                                                                                  public/homes#about
                                    items GET    /items(.:format)                                                                                  public/items#index
-                                         GET    /items/:id(.:format)                                                                              public/items#show
+                              show_items GET    /items/:id(.:format)                                                                              public/items#show
                               cart_items GET    /cart_items(.:format)                                                                             public/cart_items#index
                                          PATCH  /cart_items/:id(.:format)                                                                         public/cart_items#update
                                          DELETE /cart_items/:id(.:format)                                                                         public/cart_items#destroy
