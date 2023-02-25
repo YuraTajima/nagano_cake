@@ -1,2 +1,51 @@
-<h1>Public::Addresses#index</h1>
-<p>Find me in app/views/public/addresses/index.html.erb</p>
+<main>
+    <h3>配送先登録/一覧</h3>
+    <div>
+        <%= form_with model: @address, url: addresses_path do |f| %>
+        
+        <div class="field">
+          <span>郵便番号(ハイフンなし)</span>
+          <%= f.text_field :postal_code %>
+        </div>
+        
+        <div class="field">
+          <span>住所</span>
+          <%= f.text_field :address, size: 40  %>
+        </div>
+        
+        <div class="field">
+          <span>宛名</span>
+          <%= f.text_field :name  %>
+          <%= f.submit "新規登録" %>
+        </div>
+        <% end %>
+    </div>
+    
+    <div>
+        <table class="table table-hover table-inverse">
+        <thead>
+            <tr>
+                <th>郵便番号</th>
+                <th>住所</th>
+                <th>宛名</th>
+                <th colspan="1"></th>
+            </tr>
+        </thead>
+        
+        <tobody>
+            <% @addresses.each do |address| %>
+            <tr>
+                <th><%= address.postal_code %></th>
+                <th><%= address.address %></th>
+                <th><%= address.name %></th>
+                <th>
+                    <%= link_to '編集する', edit_addresses_path(address.id) %>  
+                    <%= link_to "削除", addresses_path, method: :delete %>
+                </th>
+                
+            </tr>
+            <% end %>
+        </tobody>
+        </table>
+    </div>
+</main>

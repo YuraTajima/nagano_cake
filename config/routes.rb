@@ -45,9 +45,9 @@ Rails.application.routes.draw do
   
   #addresses
   get "/addresses" => "public/addresses#index"
-  get "/addresses/:id/edit" => "public/addresses#edit"
+  get "/addresses/:id/edit" => "public/addresses#edit", as: "edit_addresses"
   post "/addresses" => "public/addresses#create"
-  patch "/addresses/:id" => "public/addresses#update"
+  patch "/addresses/:id" => "public/addresses#update", as: "address"
   delete "/addresses/:id" => "public/addresses#destroy"
   
   #customers
