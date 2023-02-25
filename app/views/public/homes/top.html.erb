@@ -15,8 +15,26 @@
   <h1>新着商品</h1>
     
   <div>
-      
-  </div>
+        <% @items.each do |item| %>
+        <ul>
+            <%= link_to show_items_path(item.id) do %>
+            <li>
+                <% if item.image.attached? %>
+                    <%= image_tag item.image, size: "100x100" %>
+                <% else %>
+                    <%= image_tag 'no_image', size: "100x100" %>
+                <% end %>
+            </li>
+            <li>
+                <%= item.name %>
+            </li>
+            <% end %>
+            <li>
+                <%= item.price %>
+            </li>
+        </ul>
+        <% end %>
+    </div>
   
   <div>
     <%= link_to "全ての商品を見る＞", items_path %>

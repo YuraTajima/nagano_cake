@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
   
   def show
-    @customers = Customer.all
+    # @customer = Customer.find(params[:id])
   end
 
   def edit
@@ -11,7 +11,7 @@ class Public::CustomersController < ApplicationController
   def update
     customer = Customer.find(params[:id])
     customer.update(customer_params)
-    redirect_to customers_path(params[:id])
+    redirect_to customers_path
   end
 
   def unsubscribe
