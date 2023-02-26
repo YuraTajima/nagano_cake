@@ -4,7 +4,7 @@
     </div>
     
     <div>
-        <%= form_with model: @address, url: address_path, method: :patch do |f| %>
+        <%= form_with model: @address, url: update_addresses_path, method: :patch do |f| %>
         
         <span>郵便番号(ハイフンなし)</span>
          <%= f.text_field :postal_code %>

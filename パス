@@ -1,4 +1,4 @@
-new_customer_session GET    /customers/sign_in(.:format)                                                                      public/sessions#new
+                    new_customer_session GET    /customers/sign_in(.:format)                                                                      public/sessions#new
                         customer_session POST   /customers/sign_in(.:format)                                                                      public/sessions#create
                 destroy_customer_session DELETE /customers/sign_out(.:format)                                                                     public/sessions#destroy
             cancel_customer_registration GET    /customers/cancel(.:format)                                                                       public/registrations#cancel
@@ -39,8 +39,8 @@ new_customer_session GET    /customers/sign_in(.:format)                        
                                    items GET    /items(.:format)                                                                                  public/items#index
                               show_items GET    /items/:id(.:format)                                                                              public/items#show
                               cart_items GET    /cart_items(.:format)                                                                             public/cart_items#index
-                                         PATCH  /cart_items/:id(.:format)                                                                         public/cart_items#update
-                                         DELETE /cart_items/:id(.:format)                                                                         public/cart_items#destroy
+                       update_cart_items PATCH  /cart_items/:id(.:format)                                                                         public/cart_items#update
+                      destroy_cart_items DELETE /cart_items/:id(.:format)                                                                         public/cart_items#destroy
                   cart_items_destroy_all DELETE /cart_items/destroy_all(.:format)                                                                 public/cart_items#destroy_all
                                          POST   /cart_items(.:format)                                                                             public/cart_items#create
                               orders_new GET    /orders/new(.:format)                                                                             public/orders#new
@@ -52,8 +52,8 @@ new_customer_session GET    /customers/sign_in(.:format)                        
                                addresses GET    /addresses(.:format)                                                                              public/addresses#index
                           edit_addresses GET    /addresses/:id/edit(.:format)                                                                     public/addresses#edit
                                          POST   /addresses(.:format)                                                                              public/addresses#create
-                                 address PATCH  /addresses/:id(.:format)                                                                          public/addresses#update
-                                         DELETE /addresses/:id(.:format)                                                                          public/addresses#destroy
+                        update_addresses PATCH  /addresses/:id(.:format)                                                                          public/addresses#update
+                       destroy_addresses DELETE /addresses/:id(.:format)                                                                          public/addresses#destroy
                        customers_my_page GET    /customers/my_page(.:format)                                                                      public/customers#show
               customers_information_edit GET    /customers/information/edit(.:format)                                                             public/customers#edit
                    customers_information PATCH  /customers/information(.:format)                                                                  public/customers#update

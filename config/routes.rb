@@ -30,8 +30,8 @@ Rails.application.routes.draw do
   
   #cart_items
   get "/cart_items" => "public/cart_items#index"
-  patch  "/cart_items/:id" => "public/cart_items#update"
-  delete "/cart_items/:id" => "public/cart_items#destroy"
+  patch  "/cart_items/:id" => "public/cart_items#update", as: "update_cart_items"
+  delete "/cart_items/:id" => "public/cart_items#destroy", as: "destroy_cart_items"
   delete "/cart_items/destroy_all" => "public/cart_items#destroy_all"
   post "/cart_items" => "public/cart_items#create"
   
@@ -47,8 +47,8 @@ Rails.application.routes.draw do
   get "/addresses" => "public/addresses#index"
   get "/addresses/:id/edit" => "public/addresses#edit", as: "edit_addresses"
   post "/addresses" => "public/addresses#create"
-  patch "/addresses/:id" => "public/addresses#update", as: "address"
-  delete "/addresses/:id" => "public/addresses#destroy"
+  patch "/addresses/:id" => "public/addresses#update", as: "update_addresses"
+  delete "/addresses/:id" => "public/addresses#destroy", as: "destroy_addresses"
   
   #customers
   get "/customers/my_page" => "public/customers#show"

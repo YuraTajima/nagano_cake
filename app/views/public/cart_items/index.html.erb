@@ -1,5 +1,32 @@
 <main>
     <div>
         <h3>ショッピングカート</h3>
+        
+    </div>
+    
+    <div>
+        <table class="table table-hover table-inverse">
+        <thead>
+            <tr>
+                <th>商品名</th>
+                <th>単価（税込）</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th colspan="8"></th>
+            </tr>
+        </thead>
+        
+        <tobody>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>
+                    <!--%= link_to "削除する", destroy_cart_items_path(@cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>-->
+                </th>
+            </tr>
+        </tobody>
+        </table>
     </div>
 </main>
