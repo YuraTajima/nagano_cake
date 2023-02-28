@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   #items
   get "/items" => "public/items#index"
   get "/items/:id" => "public/items#show", as: "show_items"
+  post "/items" => "public/items#create"
   
   #cart_items
   get "/cart_items" => "public/cart_items#index"

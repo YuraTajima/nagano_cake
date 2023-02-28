@@ -35,9 +35,18 @@
           <span>電話番号(ハイフンなし)</span>
           <%= f.text_field :telephone_number %>
         </div>
+        
+        <div class="field">
+          <span>会員ステータス</span>
+          <%= f.radio_button :is_deleted, "sale" %>
+          <%= f.label :is_deleted, "有効" %>
+
+          <%= f.radio_button :is_deleted, "stop" %>
+          <%= f.label :is_deleted, "退会" %>
+        </div>
     
         <div class="field">
-          <%= f.submit "編集する" %>
+          <%= f.submit "編集を保存" %>
         </div>
         <% end %>
         </div>

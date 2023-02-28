@@ -1,8 +1,8 @@
 <main>
-    <h3>商品一覧</h3>
+    <h3>商品一覧（全<%= @items.count %>件）</h3>
     
     <div>
-        <% @items.each do |item| %>
+        <% @items_page.each do |item| %>
         <ul>
             <%= link_to show_items_path(item.id) do %>
             <li>
@@ -17,9 +17,10 @@
             </li>
             <% end %>
             <li>
-                <%= item.price %>
+                ¥<%= (item.price * 1.1).floor %>
             </li>
         </ul>
         <% end %>
     </div>
+    <div><%= paginate @items_page %></div>
 </main>

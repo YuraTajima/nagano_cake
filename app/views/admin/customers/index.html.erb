@@ -22,10 +22,17 @@
                     <% end %>
                 </th>
                 <th><%= customer.email %></th>
-                <th><%= customer.is_deleted %></th>
+                <th><% if customer.is_deleted %>
+                        退会
+                    <% else %>
+                        有効
+                    <% end %>
+                </th>
+                
             </tr>
             <% end %>
         </tobody>
         </table>
+        <div><%= paginate @customers %></div>
     </div>
 </main>

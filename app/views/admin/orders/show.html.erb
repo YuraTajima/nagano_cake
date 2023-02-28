@@ -3,7 +3,10 @@
         <h3>注文履歴詳細</h3>
     </div>
     <div>
-        購入者 <%= @customer.last_name %><%= @customer.first_name %><br>
+        購入者 
+        <%= link_to admin_customer_path(@customer.id) do %>
+            <%= @customer.last_name %><%= @customer.first_name %>
+        <% end %><br>
         注文日 <br>
         配送先 <br>
         支払い方法 <br>
