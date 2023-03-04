@@ -2,8 +2,6 @@
     <h3>会員情報編集</h3>
     
     <div>
-        <!--<h3>%= @customer.last_name %>%= @customer.first_name %>さんの会員情報編集</h3>-->
-        
         <%= form_with model: @customer, url: customers_information_path do |f| %>
         <div>
         <div class="field">
@@ -41,6 +39,7 @@
     
         <div class="field">
           <%= f.submit "編集内容を保存" %>
+          <%= link_to "退会する", customers_unsubscribe_path %>
         </div>
         <% end %>
         </div>
