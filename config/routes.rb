@@ -31,10 +31,10 @@ Rails.application.routes.draw do
   
   #cart_items
   get "/cart_items" => "public/cart_items#index"
+  post "/cart_items" => "public/cart_items#create"
   patch  "/cart_items/:id" => "public/cart_items#update", as: "update_cart_items"
   delete "/cart_items/:id" => "public/cart_items#destroy", as: "destroy_cart_items"
   delete "/cart_items/destroy_all" => "public/cart_items#destroy_all"
-  post "/cart_items" => "public/cart_items#create"
   
   #orders
   get "/orders/new" => "public/orders#new"
