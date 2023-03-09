@@ -17,15 +17,23 @@
         </thead>
         
         <tobody>
+            <% @cart_items.each do |cart_item| %>
             <tr>
-                <th><% @cart_item.name </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th><%= cart_item.item.name %></th>
+                <th><%= (cart_item.item.price * 1.1).floor %></th>
                 <th>
-                    <!--%= link_to "削除する", destroy_cart_items_path(@cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>-->
+                    <%= form_with model: cart_item, url: update_cart_items_path(cart_item.id) do |f| %>
+                    <%= f.select :amount, *[1..5] %>
+                    <%= f.submit '変更' %>
+                    <% end %>
+                </th>
+                <th><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></th>
+                <% @sum +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
+                <th>
+                    <%= link_to "削除する", destroy_cart_items_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
                 </th>
             </tr>
+            <% end %>
         </tobody>
         </table>
     </div>

@@ -20,7 +20,7 @@
             </li>
             
             <li>
-                <%= form_with model: @item, url: cart_items_path, method: :get do |f| %>
+                <%= form_with model: @cart_items, url: cart_items_path, method: :post do |f| %>
                     <%= f.hidden_field :item_id, :value => @item.id %>
                     <%= f.select :amount, *[1..5] %>
                     <%= f.submit 'カートに入れる' %>
