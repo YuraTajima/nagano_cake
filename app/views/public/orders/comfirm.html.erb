@@ -1,2 +1,53 @@
-<h1>Public::Orders#comfirm</h1>
-<p>Find me in app/views/public/orders/comfirm.html.erb</p>
+<main>
+    <div>
+        <h3>注文情報確認</h3>
+    </div>
+    
+    <div>
+        <%= form_with model: @order_details, url: orders_complete_path, method: :get do |f| %>
+        <%= f.hidden_field :order_id, :value => @order.id %>
+    <div>
+            
+        <table class="table table-hover table-inverse">
+        <thead>
+            <tr>
+                <th>商品名</th>
+                <th>単価（税込）</th>
+                <th>数量</th>
+                <th>小計</th>
+            </tr>
+        </thead>
+        
+        <tobody>
+            <% @cart_items.each do |cart_item| %>
+            <tr>
+                <th><%= cart_item.item.name %></th>
+                <th><%= (cart_item.item.price * 1.1).floor %></th>
+                <th><%= cart_item.amount %></th>
+                <th>
+                    <%= (cart_item.item.price * 1.1).floor * cart_item.amount %>
+                </th>
+                <% @sum +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
+            </tr>
+            <% end %>
+        </tobody>
+        </table>
+    </div>
+    
+    <div>
+        送料 <%= @shipping_cost %></br>
+        商品合計 <%= @sum %></br>
+        請求金額 <%= @total_payment = @shipping_cost + @sum %>
+    </div>
+    
+    <div>
+        <h3><strong>支払い方法</strong></h3>
+        <p><%= @order.payment_method %></p>
+        
+        <h3><strong>お届け先</strong></h3>
+        <%= @order.address %></p>
+    </div>
+    <%= f.submit '注文を確定する' %>
+    <% end %>
+    </div>
+</main>
