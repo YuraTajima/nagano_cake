@@ -27,7 +27,9 @@
                     <%= f.submit '変更' %>
                     <% end %>
                 </th>
-                <th><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></th>
+                <th>
+                    <%= (cart_item.item.price * 1.1).floor * cart_item.amount %>
+                </th>
                 <% @sum +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
                 <th>
                     <%= link_to "削除する", destroy_cart_items_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
@@ -42,7 +44,7 @@
         </div>
         
         <div>
-            合計金額
+            合計金額<%= @sum %>
         </div>
         
         <div>

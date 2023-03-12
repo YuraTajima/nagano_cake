@@ -3,6 +3,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def comfirm
+    
   end
 
   def complete

@@ -13,8 +13,9 @@ class Public::CartItemsController < ApplicationController
   end
   
   def index
-    @cart_items = current_customer.cart_items
+    @cart_items = current_customer.cart_items.all
     @sum = 0
+    
   end
 
   def update
@@ -30,6 +31,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
+    current_customer.cart_items.destroy_all
+    redirect_to cart_items_path
   end
   
   private
