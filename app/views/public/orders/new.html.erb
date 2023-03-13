@@ -20,8 +20,8 @@
         
         <div>
             <div>
-            <%= f.radio_button :order, "my_address" %>
-            <%= f.label :payment_method_credit_card, "ご自身の住所" %> 
+            <%= f.radio_button :order, @customer %>
+            <%= f.label :customer_id, "ご自身の住所" %> 
             <p>
                 〒<%= @customer.postal_code %> <%= @customer.address %><br>
                 <%= @customer.last_name %><%= @customer.first_name %>
@@ -30,13 +30,13 @@
 
             <div>
             <%= f.radio_button :order, "transfer" %>
-            <%= f.label :payment_method_transfer, "登録済みから選択" %>
+            <%= f.label :customer_id, "登録済みから選択" %>
             <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
             </div>
             
             <div>
             <%= f.radio_button :order, "transfer" %>
-            <%= f.label :payment_method_transfer, "新しいお届け先" %>
+            <%= f.label :customer_id, "新しいお届け先" %>
             
                   <span>郵便番号(ハイフンなし)</span>
                   <%= f.text_field :postal_code %></br>

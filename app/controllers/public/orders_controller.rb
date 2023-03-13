@@ -7,7 +7,6 @@ class Public::OrdersController < ApplicationController
 
   def comfirm
     @cart_items = current_customer.cart_items.all
-    @order = current_customer.order.all
     @sum = 0
     @shipping_cost = 800
     @total_payment = 0
