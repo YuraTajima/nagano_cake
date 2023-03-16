@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get "/orders/complete" => "public/orders#complete"
   post "/orders" => "public/orders#create"
   get "/orders" => "public/orders#index"
-  get "/orders/:id" => "public/orders#show"
+  get "/orders/:id" => "public/orders#show", as: "show_orders"
   
   #addresses
   get "/addresses" => "public/addresses#index"
