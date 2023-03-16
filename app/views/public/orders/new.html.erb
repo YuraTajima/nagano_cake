@@ -20,32 +20,30 @@
         
         <div>
             <div>
-            <%= f.radio_button :order, @customer %>
-            <%= f.label :customer_id, "ご自身の住所" %> 
-            <p>
-                〒<%= @customer.postal_code %> <%= @customer.address %><br>
-                <%= @customer.last_name %><%= @customer.first_name %>
-            </p>
+            <%= f.radio_button :address_number, 1 %>
+            <%= f.label :address_number_1, "ご自身の住所" %> </br>
+            <%= current_customer.postal_code %> <%= current_customer.address %> </br>
+            <%= current_customer.last_name %><%= current_customer.first_name %>
             </div>
 
             <div>
-            <%= f.radio_button :order, "transfer" %>
-            <%= f.label :customer_id, "登録済みから選択" %>
+            <%= f.radio_button :address_number, 2 %>
+            <%= f.label :address_number_2, "登録済みから選択" %> </br>
             <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
             </div>
             
             <div>
-            <%= f.radio_button :order, "transfer" %>
-            <%= f.label :customer_id, "新しいお届け先" %>
+            <%= f.radio_button :address_number, 3 %>
+            <%= f.label :address_number_3, "新しいお届け先" %> </br>
             
-                  <span>郵便番号(ハイフンなし)</span>
-                  <%= f.text_field :postal_code %></br>
-
-                  <span>住所</span>
-                  <%= f.text_field :address, size: 40  %></br>
-
-                  <span>宛名</span>
-                  <%= f.text_field :name  %>
+                  <%= f.label :postal_code, "郵便番号(ハイフンなし)" %> 
+                  <%= f.text_field :postal_code %> </br>
+                  
+                  <%= f.label :address, "住所" %>
+                  <%= f.text_field :address, size: 40 %> </br>
+                  
+                  <%= f.label :name, "宛名" %>
+                  <%= f.text_field :name %>
             </div>
             <%= f.submit "確認画面へすすむ" %>
         </div>
