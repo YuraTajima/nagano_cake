@@ -57,11 +57,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @order_details = OrderDetail.all
+    @orders = current_customer.orders
   end
 
   def show
-    @order_detail = OrderDetail.find(params[:id])
+    #byebug
+    @order = Order.find(params[:id])
+    @order_details = OrderDetail.where(order_id: @order.id)
+    @sum = 0
   end
   
   
