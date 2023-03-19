@@ -14,15 +14,15 @@
         </thead>
         
         <tobody>
-            <% @customers.each do |customer| %>
+            <% @orders.each do |order| %>
             <tr>
                 <th>
-                    <%= link_to admin_order_path(customer.id) do %>
+                    <%= link_to admin_order_path(order.id) do %>
                     日付
                     <% end %>
                 </th>
-                <th><%= customer.last_name %><%= customer.first_name %></th>
-                <th></th>
+                <th><%= order.name %></th>
+                <th><%= order.amount %></th>
             </tr>
             <% end %>
         </tobody>
