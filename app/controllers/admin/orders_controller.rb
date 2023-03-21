@@ -3,6 +3,9 @@ class Admin::OrdersController < ApplicationController
     @customer = Customer.find(params[:id])
     @order = Order.find(params[:id])
     @order_details = OrderDetail.where(order_id: @order.id)
+    @sum = 0
+    @shipping_cost = 800
+    @total = 0
   end
 
   def update

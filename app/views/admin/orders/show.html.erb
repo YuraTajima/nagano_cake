@@ -1,21 +1,48 @@
-<main class="mx-auto">
-    <div>
+<main class="mx-5 my-3">
+    
+    <div class="mx-5">
         <h3>注文履歴詳細</h3>
-    </div>
-    <div>
-        購入者 
-        <%= link_to admin_customer_path(@customer.id) do %>
-            <%= @customer.last_name %><%= @customer.first_name %>
-        <% end %><br>
-        注文日 <%= @order.created_at %><br>
-        配送先
-        <%= @order.postal_code %> </br>
-        <%= @order.address %> </br>
-        <%= @order.name %> </br>
-        支払い方法 <%= @order.payment_method %><br>
     </div>
     
     <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td><p class="mt-1"><strong>購入者</strong></p></td>
+                    <td><p class="mt-1 ml-2">
+                        <%= link_to admin_customer_path(@customer.id) do %>
+                            <%= @customer.last_name %><%= @customer.first_name %>
+                        <% end %>
+                    </p></td>
+                </tr>
+                <tr>
+                    <td><p class="mt-1"><strong>注文日</strong></p></td>
+                    <td><p class="mt-1 ml-2"><%= @order.created_at %></p></td>
+                </tr>
+                <tr>
+                    <td><p class="mt-1"><strong>配送先</strong></p></td>
+                    <td>
+                        <span class="mt-1  ml-2 mr-1">〒<%= @order.postal_code %></span>
+                        <span class="mt-1"><%= @order.address %></span>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1"></td>
+                    <td><p class="mt-1 ml-2"><%= @order.name %></p></td>
+                </tr>
+                <tr>
+                    <td><p class="mt-1"><strong>支払方法</strong></p></td>
+                    <td><p class="mt-1 ml-2">
+                        ？？？
+                    </p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="row">
+    <div class="col-6">
         <table class="table table-hover table-inverse">
         <thead>
             <tr>
@@ -32,11 +59,32 @@
                 <th><%= order_detail.item.name %></th>
                 <th><%= order_detail.price %></th>
                 <th><%= order_detail.amount %></th>
-                
                 <th><%= order_detail.price * order_detail.amount %></th>
+                <% @sum += order_detail.price * order_detail.amount %>
             </tr>
             <% end %>
         </tobody>
         </table>
+    </div>
+    
+    <div class="ml-5 mt-5">
+        <table class="coi-6">
+            <tbody>
+                <tr>
+                    <td><p class="mr-2"><strong>商品合計</strong></p></td>
+                    <td><p class="ml-3 text-right"><%= @sum %>円</p></td>
+                </tr>
+                <tr>
+                    <td><p class="mr-2"><strong>送料</strong></p></td>
+                    <td ><p class="ml-3 text-right"><%= @shipping_cost %>円</p></td>
+                </tr>
+                <% @total = @sum + @shipping_cost %>
+                <tr>
+                    <td><p class="mr-2"><strong>請求金額合計</strong></p></td>
+                    <td><p class="ml-3 text-right"><%= @total %>円</p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     </div>
 </main>
