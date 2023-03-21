@@ -1,6 +1,6 @@
 <main class="mx-5">
     
-    <div>
+    <div class="mx-5">
         <h3>商品詳細</h>
     </div>
     
@@ -13,20 +13,53 @@
         <% end %>
     </div>
     
-    <div class="mt-5 col-6">
+    <table class="col-3">
+    <div class="mt-5">
+        <tbody>
+        <tr>
+            <td><p class="mt-3">商品名</p></td>
+            <td><p class="mt-3"><%= @item.name %></p> </td>
+        </tr>
+        <tr>
+            <td><p class="mt-3">商品説明</p></td> 
+            <td><p><class="mt-3"><%= @item.introduction %></p></td>
+        </tr>
+        <tr>
+            <td><p class="mt-3">ジャンル</p></td> 
+            <td><p class="mt-3">
+                    <% if @item.genre_id == 1 %>
+                        ケーキ
+                    <% elsif @item.genre_id == 2 %>
+                        プリン
+                    <% elsif @item.genre_id == 3 %>
+                        焼き菓子
+                    <% else @item.genre_id == 4 %>
+                        キャンディ
+                    <% end %>
+            </p></td>
+        </tr>
+        <tr>
+            <td><p class="mt-3">税込価格</br>(税抜価格)</p></th>
+            <td><p class="mt-3"><%= (@item.price * 1.1).floor %> (<%= @item.price %>)円</p></td>
+        </tr>
         
-        <p class="mt-3">商品名 <%= @item.name %></p> 
-        <p class="mt-3">商品説明 <%= @item.introduction %></p>
-        <p class="mt-3">ジャンル <%= @item.genre_id %></p>
-        <p class="mt-3">税込価格 <%= @item.price %></p>
-        <p class="mt-3">販売ステータス
-            <% if @item.is_active %>
-                販売中
-            <% else %>
-                販売停止中
+        <tr>
+            <td><p class="mt-3">販売ステータス</p></td>
+            <td><p class="mt-3">
+                <% if @item.is_active %>
+                    販売中
+                <% else %>
+                    販売停止中
+                <% end %>
+            </p></td>
+        </tr>
+        </tbody>
+    </div>
+    </table>
+    </div>
+    </div>
+        <div class="mx-auto" style="width: 200px;">
+            <%= link_to edit_admin_item_path(@item.id) do %>
+             <button type="button" class="btn btn-success">編集する</button>
             <% end %>
-        </p>
-    <div class="mt-5 col-6"><%= link_to '編集する', edit_admin_item_path(@item.id) %></div>
-    </div>
-    </div>
 </main>
