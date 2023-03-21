@@ -18,11 +18,11 @@
             <tr>
                 <th>
                     <%= link_to admin_order_path(order.id) do %>
-                    日付
+                    <%= order.created_at %>
                     <% end %>
                 </th>
                 <th><%= order.name %></th>
-                <th><%= order.amount %></th>
+                <th><%#= order.amount %></th>
             </tr>
             <% end %>
         </tobody>

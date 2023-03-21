@@ -1,4 +1,4 @@
-<main>
+<main class="mx-auto">
     <div>
         <h3>注文履歴詳細</h3>
     </div>
@@ -7,10 +7,12 @@
         <%= link_to admin_customer_path(@customer.id) do %>
             <%= @customer.last_name %><%= @customer.first_name %>
         <% end %><br>
-        注文日 <br>
-        配送先 <br>
-        支払い方法 <br>
-        注文ステータス <br>
+        注文日 <%= @order.created_at %><br>
+        配送先
+        <%= @order.postal_code %> </br>
+        <%= @order.address %> </br>
+        <%= @order.name %> </br>
+        支払い方法 <%= @order.payment_method %><br>
     </div>
     
     <div>
@@ -21,18 +23,19 @@
                 <th>単価（税込）</th>
                 <th>数量</th>
                 <th>小計</th>
-                <th>制作ステータス</th>
             </tr>
         </thead>
         
         <tobody>
+            <% @order_details.each do |order_detail| %>
             <tr>
-                <th><%= @item.name %></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th><%= order_detail.item.name %></th>
+                <th><%= order_detail.price %></th>
+                <th><%= order_detail.amount %></th>
+                
+                <th><%= order_detail.price * order_detail.amount %></th>
             </tr>
+            <% end %>
         </tobody>
         </table>
     </div>

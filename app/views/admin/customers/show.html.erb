@@ -1,20 +1,39 @@
-<main>
-    <div>
+<main class="mx-5">
         <h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3>
-        会員ID <%= @customer.id %><br>
-        氏名 <%= @customer.last_name %><%= @customer.first_name %><br>
-        フリガナ <%= @customer.last_name_kana %><%= @customer.first_name_kana %><br>
-        郵便番号 <%= @customer.postal_code %><br>
-        住所 <%= @customer.address %><br>
-        電話番号 <%= @customer.telephone_number %><br>
-        メールアドレス <%= @customer.email %><br>
-        会員ステータス 
-        <% if @customer.is_deleted %>
-            退会
-        <% else %>
-            有効
-        <% end %><br>
-        <%= link_to '編集する', edit_admin_customer_path(@customer.id) %><br>
-        <%= link_to '注文履歴一覧を見る', admin_root_path %>
+        <div class="row">
+        <div class="log-6">
+            <p class="mt-3">会員ID</p>
+            <p class="mt-3">氏名</p>
+            <p class="mt-3">フリガナ</p> 
+            <p class="mt-3">郵便番号</p> 
+            <p class="mt-3">住所</p> 
+            <p class="mt-3">電話番号</p> 
+            <p class="mt-3">メールアドレス</p> 
+            <p class="mt-3">会員ステータス</p> 
+        </div>
+
+        <div class="log-6">
+            <p class="mt-3 pl-5"><%= @customer.id %></p>
+            <p class="mt-3 pl-5"><%= @customer.last_name %><%= @customer.first_name %> </p>
+            <p class="mt-3 pl-5"><%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
+            <p class="mt-3 pl-5"><%= @customer.postal_code %></p>
+            <p class="mt-3 pl-5"><%= @customer.address %></p>
+            <p class="mt-3 pl-5"><%= @customer.telephone_number %></p>
+            <p class="mt-3 pl-5"><%= @customer.email %></p>
+            <p class="mt-3 pl-5">
+                <% if @customer.is_deleted %>
+                    退会
+                <% else %>
+                    有効
+                <% end %>
+            </p>
+            <div class="row">
+            <div class="log-3 pr-5">
+            <%= link_to '編集する', edit_admin_customer_path(@customer.id) %>
+            </div>
+            <div class="log-3 ">
+            <%= link_to '注文履歴一覧を見る', admin_root_path %>
+            </div>
+        </div>
     </div>
 </main>

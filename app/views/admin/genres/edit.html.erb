@@ -1,13 +1,13 @@
-<main>
-    <div>
+<main class="mx-5">
+    <div class="mx-5">
         <h3>ジャンル編集</h3>
     </div>
     
-    <div>
+    <div class="row mt-3">
         <p>ジャンル名</p>
         <%= form_with model: @genre, url: admin_genre_path do |f| %>
-        <%= f.text_field :name %>
-        <h4><%= f.submit '変更を保存' %></h4>
+        <p class="mx-3"><%= f.text_field :name %>
+        <%= f.submit '変更を保存' %></p>
         <% end %>
     </div>
 </main>

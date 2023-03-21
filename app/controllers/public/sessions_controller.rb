@@ -35,8 +35,9 @@ before_action :customer_state, only: [:create]
     return if !@customer
     
     if @customer.valid_password?(params[:customer][:password])
-      true && !false
-      → true
+      if @customer.is_deleted == true
+        redirect_to new_customer_registration_path
+      end
     end
   end
   

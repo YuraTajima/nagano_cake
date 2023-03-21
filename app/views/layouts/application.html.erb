@@ -13,11 +13,17 @@
   <body>
     
      <header>
-      <nav class="navber navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navber navbar-expand-lg navbar-light">
         <div class="container">
         <span class="navbar-brand">
-          <%= link_to "logo", root_path %>
+          <%= link_to "LOGO", root_path %>
         </span>
+        
+          <div>
+            <% if customer_signed_in? %>
+            ようこそ、<%= current_customer.last_name %>さん！
+            <% end %>
+          </div>
         
           <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
             <ul class="navbar-nav ml-auto">
