@@ -1,22 +1,59 @@
-<main  class="mx-5 my-3">
+<main class="mx-5 my-3">
     <h3 class="mx-5 my-3">
         マイページ
     </h3>
-    <div>
-        <strong>登録情報</strong>　<%= button_to "編集する", customers_information_edit_path(@customer.id) %>
+    <div class="row">
+        <p class="mx-5"><strong>登録情報</strong></p>
+        <%= link_to customers_information_edit_path(@customer.id) do %>
+        <button type="button" class="btn btn-primary">編集する</button>
+        <% end %>
+    </div>
+    
+    <div class="col-8">
+        <table class="table table-hover table-bordered">
+            <tbody>
+                <tr>
+                    <td>氏名</td>
+                    <td><%= @customer.last_name %> <%= @customer.first_name %></td>
+                </tr>
+                <tr>
+                    <td>カナ</td>
+                    <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+                </tr>
+                <tr>
+                    <td>郵便番号</td>
+                    <td><%= @customer.postal_code %></td>
+                </tr>
+                <tr>
+                    <td>住所 </td>
+                    <td><%= @customer.address %></td>
+                </tr>
+                <tr>
+                    <td>電話番号</td>
+                    <td><%= @customer.telephone_number %></td>
+                </tr>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><%= @customer.email %></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     
     <div>
-        氏名　<%= @customer.last_name %><%= @customer.first_name %> <br>
-        カナ　<%= @customer.last_name_kana %><%= @customer.first_name_kana %><br>
-        郵便番号 <%= @customer.postal_code %><br>
-        住所 <%= @customer.address %><br>
-        電話番号 <%= @customer.telephone_number %><br>
-        メールアドレス <%= @customer.email %><br>
-    </div>
-    
-    <div>
-         配送先 <%= link_to "一覧を見る", addresses_path %>
-         注文履歴　<%= link_to "一覧を見る", orders_path %>
+        <div class="row">
+        <p class="mx-5"><strong>配送先</strong></p>　
+        <%= link_to addresses_path do %>
+        <button type="button" class="btn btn-primary">一覧を見る</button>
+        <% end %>
+        </div>
+         
+        <div class="row">
+        <p class="mx-5"><strong>注文履歴</strong></p> 
+        <%= link_to orders_path do %>
+        <button type="button" class="btn btn-primary">一覧を見る</button>
+        <% end %>
+        </div>
+         　
     </div>
 </main>

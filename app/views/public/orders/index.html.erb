@@ -1,16 +1,14 @@
 <main>
-    <div><h3>注文履歴一覧</h3></div>
+    <div class="mx-5 my-3"><h3>注文履歴一覧</h3></div>
     
-    <div>
-            
-        <table class="table table-hover table-inverse">
+    <div class="mt-4">
+        <table class="table table-hover table-bordered">
         <thead>
             <tr>
                 <th>注文日</th>
                 <th>配送先</th>
                 <th>注文商品</th>
                 <th>支払い金額</th>
-                <th>ステータス</th>
                 <th>注文詳細</th>
             </tr>
         </thead>
@@ -18,9 +16,9 @@
         <tobody>
             <% @orders.each do |order| %>
             <tr>
-                <th><%= order.created_at %></th>
+                <th><p class="mt-4"><%= order.created_at %></p></th>
                 <th>
-                    <%= order.postal_code %> </br>
+                    〒<%= order.postal_code %> </br>
                     <%= order.address %> </br>
                     <%= order.name %>
                 </th>
@@ -29,9 +27,14 @@
                         <%= order_detail.item.name %>
                     <% end %>
                 </th>
-                <th><%= order.total_payment %></th>
-                <th><%= order.status %></th>
-                <th><%= link_to "表示する", show_orders_path(order) %></th>
+                <th><p class="mt-4"><%= order.total_payment %>円</p></th>
+                <th>
+                    <p class="text-center">
+                    <%= link_to show_orders_path(order) do %>
+                     <button type="button" class="btn btn-primary">表示する</button>
+                    <% end %>
+                    </p>
+                </th>
             </tr>
             <% end %>
         </tobody>
