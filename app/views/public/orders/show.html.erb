@@ -1,63 +1,88 @@
 <main class="mx-5 my-3">
+    
     <div class="mx-5 my-3"><h3>注文履歴詳細</h3></div>
+    
     <div class="row">
-    <div class="col-5">
-    <div clas="my-5">
-        <div><strong>注文情報</strong></div>
+        <div class="col-6">
+            <div clas="my-5">
+                <div><strong>注文情報</strong></div>
+                <table class="table table-hover table-bordered mt-3">
+                    <tbody>
+                        <tr>
+                            <td><p class="">注文日</p></td>
+                            <td><%= @order.created_at %></td>
+                        </tr>
+                        <tr>
+                            <td><p class="">配送先</p></td>
+                            <td>
+                                <%= @order.postal_code %> </br>
+                                <%= @order.address %> </br>
+                                <%= @order.name %> </br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="">支払方法</p></td>
+                            <td><%= @order.payment_method %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="col-4">
+        <div class="">
+        <div><strong>請求情報</strong></div>
         <table class="table table-hover table-bordered mt-3">
-            <tbody>
+            <tobody>
                 <tr>
-                    <td><p class="">注文日</p></td>
-                    <td><%= @order.created_at %></td>
-                </tr>
-                <tr>
-                    <td><p class="">配送先</p></td>
+                    <td>商品合計</td>
                     <td>
-                        <%= @order.postal_code %> </br>
-                        <%= @order.address %> </br>
-                        <%= @order.name %> </br>
+                        <% @order_details.each do |order_detail| %>
+                        <% order_detail.price %>
+                        <% order_detail.amount %>
+                        <% @sum += order_detail.price * order_detail.amount %>
+                        <% end %>
+                        <%= @sum %>
                     </td>
                 </tr>
                 <tr>
-                    <td><p class="">支払方法</p></td>
-                    <td><%= @order.payment_method %></td>
+                    <td>配送料</td>
+                    <td><%= @order.shipping_cost %></td>
                 </tr>
-            </tbody>
+                <tr>
+                    <td>ご請求額</td>
+                    <td><%= @order.total_payment %></td>
+                </tr>
+            </tobody>
         </table>
-    </div>
-    </div>
+        </div>
+        </div>
 
-    <div>
-        <div><strong>注文内容</strong></div>
-        <table class="table table-hover table-bordered mt-3">
-        <thead>
-            <tr>
-                <th>商品名</th>
-                <th>単価（税込）</th>
-                <th>数量</th>
-                <th>小計</th>
-            </tr>
-        </thead>
+        <div class="col-8">
+            <div><strong>注文内容</strong></div>
+                <table class="table table-hover table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>単価（税込）</th>
+                        <th>数量</th>
+                        <th>小計</th>
+                    </tr>
+                </thead>
         
-        <tobody>
-            <% @order_details.each do |order_detail| %>
-            <tr>
-                <th><%= order_detail.item.name %></th>
-                <th><%= order_detail.price %></th>
-                <th><%= order_detail.amount %></th>
-                <th><%= order_detail.price * order_detail.amount %></th>
-                <% @sum += order_detail.price * order_detail.amount %>
-            </tr>
-            <% end %>
-        </tobody>
-        </table>
+                <tobody>
+                    <% @order_details.each do |order_detail| %>
+                    <tr>
+                        <th><%= order_detail.item.name %></th>
+                        <th><%= order_detail.price %></th>
+                        <th><%= order_detail.amount %></th>
+                        <th><%= order_detail.price * order_detail.amount %></th>
+                    </tr>
+                    <% end %>
+                </tobody>
+                </table>
+        </div>
     </div>
     
-    <div>
-        <strong>請求情報</strong>
-        商品合計 <%= @sum %> </br>
-                        配送料<%= @order.shipping_cost %></br>
-                        ご請求額<%= @order.total_payment %>
-    </div>
-    </div>
+    
 </main>
