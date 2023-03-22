@@ -1,18 +1,21 @@
-<main>
-    <div>
-        <h3>ショッピングカート</h3>
-        <h4><%= button_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm" => "本当に削除しますか？"  %></h4>
+<main class="mx-5 my-3">
+    
+    <div class="row">
+        <h3 class="col-5 ml-5">ショッピングカート</h3>
+        <p class="col-5 text-right">
+            <%= button_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+        </p>
     </div>
     
     <div>
-        <table class="table table-hover table-inverse">
+        <table class="table table-hover table-bordered">
         <thead>
             <tr>
                 <th>商品名</th>
                 <th>単価（税込）</th>
                 <th>数量</th>
                 <th>小計</th>
-                <th colspan="8"></th>
+                <th colspan="1"></th>
             </tr>
         </thead>
         
@@ -32,24 +35,37 @@
                 </th>
                 <% @sum +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
                 <th>
-                    <%= link_to "削除する", destroy_cart_items_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+                    <div class="text-center"><%= button_to "削除する", destroy_cart_items_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></div>
                 </th>
             </tr>
             <% end %>
         </tobody>
         </table>
-        
-        <div>
-            <%= link_to "買い物を続ける", root_path %>
-        </div>
-        
-        <div>
-            合計金額<%= @sum %>
-        </div>
-        
-        <div>
-            <%= link_to "情報入力に進む", orders_new_path %>
-        </div>
-        
     </div>
+        
+    <div class="row">
+        <div class="col-10 mt-5">
+            <%= link_to root_path do %>
+             <button type="button" class="btn btn-primary">買い物を続ける</button>
+            <% end %>
+        </div>
+        
+        <div class="col-2 mt-5 row justify-content-end">
+            <table class="table table-hover table-bordered">
+                <tobody>
+                    <th>
+                        <hd>合計金額</hd>
+                        <td><%= @sum %></td>
+                    </th>
+                </tobody>
+            </table>
+        </div>
+    </div>
+    
+        <div class="text-center">
+            <%= link_to orders_new_path do %>
+                <button type="button" class="btn btn-success">情報入力に進む</button>
+            <% end %>
+        </div>
+        
 </main>

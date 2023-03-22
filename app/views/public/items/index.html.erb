@@ -1,15 +1,18 @@
-<main>
+<main class="mx-5 my-3">
+    
     <h3>商品一覧（全<%= @items.count %>件）</h3>
     
-    <div>
+    <div class="my-3">
+      <div class="row justify-content-center">
+
         <% @items_page.each do |item| %>
-        <ul>
+        <ul class="list-unstyled px-3">
             <%= link_to show_items_path(item.id) do %>
-            <li>
+            <li class="border border-dark">
                 <% if item.image.attached? %>
-                    <%= image_tag item.image, size: "100x100" %>
+                    <%= image_tag item.image, size: "300x200" %>
                 <% else %>
-                    <%= image_tag 'no_image', size: "100x100" %>
+                    <%= image_tag 'no_image', size: "300x200" %>
                 <% end %>
             </li>
             <li>
@@ -21,6 +24,8 @@
             </li>
         </ul>
         <% end %>
+      </div>
     </div>
-    <div><%= paginate @items_page %></div>
+    
+    <div class="row justify-content-center"><%= paginate @items_page %></div>
 </main>

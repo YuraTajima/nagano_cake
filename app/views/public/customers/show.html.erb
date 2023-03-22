@@ -1,9 +1,9 @@
-<main>
-    <h3>
+<main  class="mx-5 my-3">
+    <h3 class="mx-5 my-3">
         マイページ
     </h3>
     <div>
-        登録情報　<%= link_to "編集する", customers_information_edit_path(@customer.id) %>
+        <strong>登録情報</strong>　<%= button_to "編集する", customers_information_edit_path(@customer.id) %>
     </div>
     
     <div>
