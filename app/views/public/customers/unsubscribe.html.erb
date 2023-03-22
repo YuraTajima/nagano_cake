@@ -11,6 +11,6 @@
         <%= link_to customers_my_page_path do %>
          <button type="button" class="btn btn-primary">退会しない</button>
         <% end %>
-        <button type="button" class="btn btn-danger">退会する</button>
+         <%= link_to "退会する", customers_withdraw_path(current_customer), method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "glyphicon glyphicon-home btn btn-danger" %>
     </div>
 </main>

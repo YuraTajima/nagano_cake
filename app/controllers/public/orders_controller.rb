@@ -1,7 +1,11 @@
 class Public::OrdersController < ApplicationController
   
+  before_action :authenticate_customer!
+  
   def new
     @order = Order.new
+    @customer = current_customer
+    @addresses = current_customer.addresses
   end
 
   def comfirm
@@ -13,7 +17,7 @@ class Public::OrdersController < ApplicationController
       @order = Order.new(order_params)
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
-      @order.name = current_customer.first_name + current_customer.last_name
+      @order.name = current_customer.last_name + current_customer.first_name
       
     elsif params[:order][:address_number] == "2"
       @order = Order.new(order_params)

@@ -17,16 +17,18 @@
             <tr>
                 <th>
                     <%= link_to admin_order_path(order.id) do %>
-                    <%= order.created_at %>
+                    <%= order.created_at%>
                     <% end %>
                 </th>
                 <th><%= order.name %></th>
-                <th><%#= order.amount %></th>
+                <th>
+                    <%= order.order_details.sum(:amount) %>
+                </th>
             </tr>
             <% end %>
         </tobody>
         </table>
-        <div><%= paginate @orders %></div>
+        <div class="pagination justify-content-center"><%= paginate @orders %></div>
     </div>
     </div>
 </main>

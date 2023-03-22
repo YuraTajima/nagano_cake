@@ -54,11 +54,13 @@
         <tbody>
             <tr>
                 <td><strong>支払方法</strong></td>
-                <td><p class="mx-3 mt-3"><%= @order.payment_method %></p></td>
+                <td><p class="mx-3 mt-3">
+                    <%= @order.payment_method %>
+                </p></td>
             </tr>
             <tr>
                 <td><strong>お届け先</strong></td>
-                <td><p class="mx-3 mt-5"><span class="mr-3"><%= @order.postal_code %></span><%= @order.address %> </br>
+                <td><p class="mx-3 mt-5"><span class="mr-3">〒<%= @order.postal_code %></span><%= @order.address %> </br>
                 <%= @order.name %></p>
                 </td>
             </tr>

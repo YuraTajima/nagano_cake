@@ -63,9 +63,13 @@
     </div>
     
         <div class="text-center">
-            <%= link_to orders_new_path do %>
-                <button type="button" class="btn btn-success">情報入力に進む</button>
+            <% if current_customer.cart_items.any? %>
+		      <% if current_customer.cart_items.any? %>
+                <%= link_to orders_new_path do %>
+                    <button type="button" class="btn btn-success">情報入力に進む</button>
+                <% end %>
             <% end %>
+		  <% end %>
         </div>
         
 </main>

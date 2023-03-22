@@ -9,10 +9,10 @@
         
         <div class="mx-5 my-3">
             <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
-            <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+            <%= f.label "クレジットカード", Order.payment_methods_i18n[:credit_card] %>
 
             <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-            <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
+            <%= f.label "銀行振込", Order.payment_methods_i18n[:transfer]%>
 
         </div>
     
@@ -32,7 +32,7 @@
             <%= f.radio_button :address_number, 2 %>
             <%= f.label :address_number_2, "登録済みから選択" %> 
             <div class="mx-5">
-            <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+                <%= f.collection_select :id, @addresses, :id, :address,{prompt: "選択してください"} %>
             </div>
             </div>
             
