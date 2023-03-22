@@ -12,77 +12,107 @@
 
   <body>
     
-     <header>
-      <nav class="navber navbar-expand-lg navbar-light">
-        <div class="container">
-        <span class="navbar-brand">
-          <%= link_to "LOGO", root_path %>
-        </span>
+     <header class="border-bottom border-3 border-dark">
+      <nav class="mx-5 my-3">
+        <div class="row">
+        <div class="col-1">
+          <%= link_to root_path do %>
+          <button type="button" class="btn btn-light px-5 border border-dark"><h3>LOGO</h3></button>
+          <% end %>
+        </div>
         
-          <div>
+          <div class="col-5">
+            <div class="mx-5 my-3 text-center">
             <% if customer_signed_in? %>
             ようこそ、<%= current_customer.last_name %>さん！
             <% end %>
+            </div>
           </div>
         
-          <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
-            <ul class="navbar-nav ml-auto">
+          <div class="col-6">
+            <ul  class="list-group list-group-horizontal text-light">
             <% if customer_signed_in? %>
             
             <li class="nav-link text-light">
-              <%= link_to "マイページ", customers_my_page_path %>
+              <%= link_to customers_my_page_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark text-right">マイページ</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "商品一覧", items_path %>
+              <%= link_to items_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">商品一覧</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "カート", cart_items_path %>
+              <%= link_to cart_items_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">カート</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+              <%= link_to destroy_customer_session_path, method: :delete do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">ログアウト</button>
+              <% end %>
             </li>
             
             <% elsif admin_signed_in? %>
             
             <li class="nav-link text-light">
-              <%= link_to "商品一覧", admin_items_path %>
+              <%= link_to admin_items_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">商品一覧</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "会員一覧", admin_customers_path %>
+              <%= link_to admin_customers_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">会員一覧</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "注文履歴一覧", admin_root_path %>
+              <%= link_to admin_root_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">注文履歴一覧</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "ジャンル一覧", admin_genres_path %>
+              <%= link_to admin_genres_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">ジャンル一覧</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+              <%= link_to destroy_admin_session_path, method: :delete do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">ログアウト</button>
+              <% end %>
             </li>
             
             <% else %>
             
             <li class="nav-link text-light">
-              <%= link_to "About", about_path %>
+              <%= link_to about_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">About</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "商品一覧", items_path %>
+              <%= link_to items_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">商品一覧</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "新規登録", new_customer_registration_path %>
+              <%= link_to new_customer_registration_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">新規登録</button>
+              <% end %>
             </li>
             
             <li class="nav-link text-light">
-              <%= link_to "ログイン", new_customer_session_path %>
+              <%= link_to new_customer_session_path do %>
+              <button type="button" class="btn btn-light px-3 border border-dark">ログイン</button>
+              <% end %>
             </li>
             
             <% end %>

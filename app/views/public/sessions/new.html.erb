@@ -1,30 +1,41 @@
-<main>
-  <div>
+<main class="mx-5 my-3">
+  <div class="mx-5">
     <h3>ログイン</h3>
+  
+  
+  <div class="mx-5 mt-5">
+    
+    <p>会員の方はこちらからログイン</p>
+    <div class="mx-5">
+      <%= form_with model: @customer, url: customer_session_path do |f| %>
+      <div>
+        <table>
+          <tobody>
+            <tr>
+              <td><p class="mt-3">メールアドレス</p></td>
+              <td><p class="mt-3 ml-5"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p></td>
+            </tr>
+            <tr>
+              <td><p class="mt-3">パスワード</p></td>
+              <td><p class="mt-3 ml-5"><%= f.password_field :password, autocomplete: "current-password" %></p></td>
+            </tr>
+            <tr>
+              <td colspan="1"></td>
+              <td><p class="mt-3 ml-5"><%= f.submit "ログイン" %></p></td>
+            </tr>
+          </tobody>
+        </table>
+      </div>
+      <% end %>
+    </div>
   </div>
+     
+     
+  <div class="mx-5 mt-5">
+    <p>会員登録がお済みでない方</p>
   
-  <p>会員の方はこちらからログイン</p>
-  
-  <div>
-    <%= form_with model: @customer, url: customer_session_path do |f| %>
-    <div class="field">
-      <span>メールアドレス</span>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <span>パスワード</span>
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "ログイン" %>
-    </div>
-  <% end %>
+    <p class="mx-5"><%= link_to "こちら", new_customer_registration_path %>　から新規登録を行ってください。</p>
   </div>
-  
-  <p>会員登録がお済みでない方</p>
-  
-  <p><%= link_to "こちら", new_customer_registration_path %>　から新規登録を行ってください</p>
-  
+
+  </div>
 </main>
